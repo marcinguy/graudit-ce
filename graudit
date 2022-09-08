@@ -10,7 +10,7 @@ basedir=$(dirname "$0")
 BINFILE=$(which grep)
 
 # Default values
-hidebanner=0
+hidebanner=1
 context=1
 zimlines="#"
 vimlines="#"
