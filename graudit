@@ -14,7 +14,7 @@ hidebanner=1
 context=1
 zimlines="#"
 vimlines="#"
-color='always'
+color='none'
 sigdb='default'
 separator='##############################################'
 excludefiles='--exclude=*.bz2 --exclude=*.gz --exclude=*.zip --exclude=*.rar --exclude=*.gif --exclude=*.jpg --exclude=*.png --exclude=*.map'
@@ -212,10 +212,7 @@ $BINFILE --exclude-dir=.svn \
          -n -R -H -E \
          -f "$database" $@ | \
 sed -e"s/$(printf '\r')//g" -e"s/^\(\x1b\[.*m\x1b\[K\)--\(\x1b\[.*\x1b\[K\)$/\1##############################################\2/" -e"s/^--$/$separator/" > "${tmppath}"
-message=$(cat "${tmppath}")
-f1=$(echo $message | cut -d ":" -f 2)
-f2=$(echo $message | cut -d ":" -f 3)
-json=$(jo -p line="$f1" data="$f2")
+json=$(./tojson.py "${tmppath}")
 echo $json
 rm -f "${tmppath}"
 SUCCESS=$?
