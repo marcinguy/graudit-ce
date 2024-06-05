@@ -1,3 +1,6 @@
+3.5             2022 Sep 08 Changes by Marcin Kozlowski. Added JSON outputs
+
+
 3.4		2022 Mar 01
 		Fixed a path issue in misc/taintfind.sh
 		Changed installation instructions for better usage
